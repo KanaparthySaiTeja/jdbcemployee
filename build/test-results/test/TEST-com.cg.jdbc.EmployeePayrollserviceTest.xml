@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.cg.jdbc.EmployeePayrollserviceTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2020-11-11T14:28:28" hostname="DESKTOP-UDL4V0I" time="1.349">
+  <properties/>
+  <testcase name="givenNewSalaryForEmployee_WhenUpdated_ShouldSyncWithDataBase" classname="com.cg.jdbc.EmployeePayrollserviceTest" time="1.349"/>
+  <system-out><![CDATA[Driver Loaded!!
+  com.mysql.jdbc.Driver
+  com.mysql.fabric.jdbc.FabricMySQLDriver
+Connecting to the Database jdbc:mysql://localhost:3306/payroll_service?allowPublicKeyRetrieval=true&useSSL=false
+Connection was successful
+Driver Loaded!!
+  com.mysql.jdbc.Driver
+  com.mysql.fabric.jdbc.FabricMySQLDriver
+Connecting to the Database jdbc:mysql://localhost:3306/payroll_service?allowPublicKeyRetrieval=true&useSSL=false
+Connection was successful
+Driver Loaded!!
+  com.mysql.jdbc.Driver
+  com.mysql.fabric.jdbc.FabricMySQLDriver
+Connecting to the Database jdbc:mysql://localhost:3306/payroll_service?allowPublicKeyRetrieval=true&useSSL=false
+Connection was successful
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

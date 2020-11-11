@@ -3,3 +3,13 @@
 +  com.mysql.fabric.jdbc.FabricMySQLDriver
 rConnecting to the Database jdbc:mysql://localhost:3306/payroll_service?allowPublicKeyRetrieval=true&useSSL=false
 Connection was successful
+Driver Loaded!!
+  com.mysql.jdbc.Driver
++  com.mysql.fabric.jdbc.FabricMySQLDriver
+rConnecting to the Database jdbc:mysql://localhost:3306/payroll_service?allowPublicKeyRetrieval=true&useSSL=false
+Connection was successful
+Driver Loaded!!
+  com.mysql.jdbc.Driver
++  com.mysql.fabric.jdbc.FabricMySQLDriver
+rConnecting to the Database jdbc:mysql://localhost:3306/payroll_service?allowPublicKeyRetrieval=true&useSSL=false
+Connection was successful
