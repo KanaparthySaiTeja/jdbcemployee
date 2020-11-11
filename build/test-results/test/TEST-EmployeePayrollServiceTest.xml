@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="EmployeePayrollServiceTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2020-11-11T12:19:22" hostname="DESKTOP-UDL4V0I" time="0.458">
+  <properties/>
+  <testcase name="givenEmployeePayrollInDB_WhenRetrieved_ShouldMatchEmployeeCount" classname="EmployeePayrollServiceTest" time="0.458"/>
+  <system-out><![CDATA[Driver Loaded!!
+  com.mysql.jdbc.Driver
+  com.mysql.fabric.jdbc.FabricMySQLDriver
+Connecting to the Database jdbc:mysql://localhost:3306/payroll_service?allowPublicKeyRetrieval=true&useSSL=false
+Connection was successful
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
