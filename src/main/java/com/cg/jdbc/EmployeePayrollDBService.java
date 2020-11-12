@@ -180,7 +180,7 @@ public class EmployeePayrollDBService {
         return employeePayrollData;
     }
 
-    public EmployeePayrollData addEmployeeToPayroll(String name,String gender, double salary, LocalDate startDate,String comp_name,String dept_name,String comp_id) {
+    public EmployeePayrollData addEmployeeToPayroll(String name,String gender, double salary, LocalDate startDate) {
         int employee_id = -1;
         Connection connection = null;
         EmployeePayrollData employeePayrollData = null;
@@ -192,8 +192,8 @@ public class EmployeePayrollDBService {
         }
 
         try(Statement statement = connection.createStatement()){
-            String sql = String.format( "Insert into employee_payroll(name,gender,salary,start,comp_name,dept_name,comp_id)" +
-                    "values ('%s','%s','%s','%s','%s','%s','%s')",name,gender,salary,Date.valueOf(startDate),comp_name,dept_name,comp_id);
+            String sql = String.format( "Insert into employee_payroll(name,gender,salary,start)" +
+                    "values ('%s','%s','%s','%s')",name,gender,salary,Date.valueOf(startDate));
             int rowaffected = statement.executeUpdate( sql,statement.RETURN_GENERATED_KEYS );
             if(rowaffected == 1){
                 ResultSet resultSet = statement.getGeneratedKeys();
@@ -219,77 +219,13 @@ public class EmployeePayrollDBService {
 
             int rowAffected = statement.executeUpdate(sql);
             if (rowAffected == 1)
-                employeePayrollData = new EmployeePayrollData( employee_id,name,gender,salary,startDate,comp_name,dept_name,comp_id);
+                employeePayrollData = new EmployeePayrollData( employee_id,name,salary,startDate );
         }catch (Exception e){
             e.printStackTrace();
             try {
                 connection.rollback();
             } catch (SQLException throwables) {
                 throwables.printStackTrace();
-            }
-        }
-
-        try(Statement statement = connection.createStatement()){
-            String sql = String.format( "Insert into company(employee_id,comp_name,comp_id) values"+
-                    "(%s, '%s', '%s')",employee_id,comp_name,comp_id);
-
-            int rowAffected = statement.executeUpdate(sql);
-            if (rowAffected == 1)
-                employeePayrollData = new EmployeePayrollData( employee_id,name,gender,salary,startDate,comp_name,dept_name,comp_id);
-        }catch (Exception e){
-            e.printStackTrace();
-            try {
-                connection.rollback();
-            } catch (SQLException e1) {
-                e1.printStackTrace();
-            }
-        }
-
-        try(Statement statement = connection.createStatement()){
-            String sql = String.format( "Insert into department(dept_name,emp_id) values"+
-                    "( '%s', %s)",dept_name,employee_id);
-
-            int rowAffected = statement.executeUpdate(sql);
-            if (rowAffected == 1)
-                employeePayrollData = new EmployeePayrollData( employee_id,name,gender,salary,startDate,comp_name,dept_name,comp_id);
-        }catch (Exception e){
-            e.printStackTrace();
-            try {
-                connection.rollback();
-            } catch (SQLException e1) {
-                e1.printStackTrace();
-            }
-        }
-
-        try(Statement statement = connection.createStatement()){
-            String sql = String.format( "Insert into employee_department(emp_id,dept_name) values"+
-                    "( %s, '%s')",employee_id,dept_name);
-
-            int rowAffected = statement.executeUpdate(sql);
-            if (rowAffected == 1)
-                employeePayrollData = new EmployeePayrollData( employee_id,name,gender,salary,startDate,comp_name,dept_name,comp_id);
-        }catch (Exception e){
-            e.printStackTrace();
-            try {
-                connection.rollback();
-            } catch (SQLException e1) {
-                e1.printStackTrace();
-            }
-        }
-
-        try(Statement statement = connection.createStatement()){
-            String sql = String.format( "Insert into employee_department(emp_id,dept_name) values"+
-                    "( %s, '%s')",employee_id,dept_name);
-
-            int rowAffected = statement.executeUpdate(sql);
-            if (rowAffected == 1)
-                employeePayrollData = new EmployeePayrollData( employee_id,name,gender,salary,startDate,comp_name,dept_name,comp_id);
-        }catch (Exception e){
-            e.printStackTrace();
-            try {
-                connection.rollback();
-            } catch (SQLException e1) {
-                e1.printStackTrace();
             }
         }
 
@@ -308,5 +244,4 @@ public class EmployeePayrollDBService {
         }
         return employeePayrollData;
     }
-    
 }

@@ -1,5 +1,6 @@
 package com.cg.jdbc;
 
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -65,7 +66,45 @@ public class EmployeePayrollService {
             return employeePayrollDBService.getAverageSalaryByGender();
         return null;
     }
+
     public void addEmployeeToPayroll(String name, String gender,double salary, LocalDate startDate) {
-        employeePayrollList.add(employeePayrollDBService.addEmployeeToPayrollUC7(name,gender,salary,startDate));
+        employeePayrollList.add(employeePayrollDBService.addEmployeeToPayroll(name,gender,salary,startDate));
+    }
+
+    public void addEmployeesToPayroll(List<EmployeePayrollData> employeePayrollDataList){
+        employeePayrollDataList.forEach( employeePayrollData -> {
+            System.out.println("employees being added : "+employeePayrollData.name);
+            this.addEmployeeToPayroll(employeePayrollData.name, employeePayrollData.gender, employeePayrollData.salary, employeePayrollData.startDate );
+            System.out.println("Employees added: "+employeePayrollData.name);
+        } );
+        System.out.println(this.employeePayrollList);
+    }
+
+    public void addEmployeesToPayrollWithThreads(List<EmployeePayrollData> employeePayrollDataList) {
+        Map<Integer, Boolean> employeeAdditionStatus = new HashMap<Integer, Boolean>();
+        employeePayrollDataList.forEach( employeePayrollData -> {
+            Runnable task = () -> {
+                employeeAdditionStatus.put( employeePayrollData.hashCode(), false );
+                System.out.println( "employees being added : " + Thread.currentThread().getName() );
+                this.addEmployeeToPayroll( employeePayrollData.name,employeePayrollData.gender,employeePayrollData.salary,employeePayrollData.startDate );
+                employeeAdditionStatus.put( employeePayrollData.hashCode(), true );
+                System.out.println( "Employees added: " + Thread.currentThread().getName() );
+            };
+            Thread thread = new Thread( task, employeePayrollData.name );
+            thread.start();
+        });
+        while (employeeAdditionStatus.containsValue( false )){
+            try {
+                Thread.sleep( 10 );
+            }catch (InterruptedException e){
+            }
+        }
+        System.out.println(this.employeePayrollList);
+    }
+
+    public long countEntries(IOService ioService){
+        if(ioService.equals( IOService.DB_IO ))
+            return employeePayrollList.size();
+        return 0;
     }
 }
