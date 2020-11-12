@@ -41,7 +41,7 @@
 </td>
 <td>
 <div class="infoBox" id="duration">
-<div class="counter">1.832s</div>
+<div class="counter">2.950s</div>
 <p>duration</p>
 </div>
 </td>
@@ -84,7 +84,7 @@
 	at org.junit.Assert.failNotEquals(Assert.java:834)
 	at org.junit.Assert.assertEquals(Assert.java:645)
 	at org.junit.Assert.assertEquals(Assert.java:631)
-	at com.cg.jdbc.EmployeePayrollserviceTest.given6Employees_WhenAddedToDB_ShouldMatchEmployeeEntries(EmployeePayrollserviceTest.java:76)
+	at com.cg.jdbc.EmployeePayrollserviceTest.given6Employees_WhenAddedToDB_ShouldMatchEmployeeEntries(EmployeePayrollserviceTest.java:77)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -148,7 +148,7 @@
 </thead>
 <tr>
 <td class="failures">given6Employees_WhenAddedToDB_ShouldMatchEmployeeEntries</td>
-<td class="failures">1.832s</td>
+<td class="failures">2.950s</td>
 <td class="failures">failed</td>
 </tr>
 </table>
@@ -204,9 +204,38 @@ Connecting to the Database jdbc:mysql://localhost:3306/payroll_service?allowPubl
 Connection was successful
 Employees added: Anil
 [EmployeePayrollData{id=1, name='Sai', salary=1000.0, startDate=2010-01-05}, EmployeePayrollData{id=2, name='Teja', salary=1000.0, startDate=2005-11-13}, EmployeePayrollData{id=3, name='Kiran', salary=36000.0, startDate=2001-04-21}, EmployeePayrollData{id=4, name='Alysse', salary=36000.0, startDate=2018-04-19}, EmployeePayrollData{id=11, name='Abhilash', salary=5000000.0, startDate=2020-11-12}, null, null, null, null, null, null]
-Duration without Thread: PT1.2017164S
+Duration without Thread: PT2.5007631S
 [EmployeePayrollData{id=1, name='Sai', salary=1000.0, startDate=2010-01-05}, EmployeePayrollData{id=2, name='Teja', salary=1000.0, startDate=2005-11-13}, EmployeePayrollData{id=3, name='Kiran', salary=36000.0, startDate=2001-04-21}, EmployeePayrollData{id=4, name='Alysse', salary=36000.0, startDate=2018-04-19}, EmployeePayrollData{id=11, name='Abhilash', salary=5000000.0, startDate=2020-11-12}, null, null, null, null, null, null]
 Duration with thread: PT0S
+employees being added : Bill Gates
+Driver Loaded!!
+  com.mysql.jdbc.Driver
+  com.mysql.fabric.jdbc.FabricMySQLDriver
+Connecting to the Database jdbc:mysql://localhost:3306/payroll_service?allowPublicKeyRetrieval=true&amp;useSSL=false
+employees being added : Mark Zuckerberg
+Driver Loaded!!
+  com.mysql.jdbc.Driver
+  com.mysql.fabric.jdbc.FabricMySQLDriver
+Connecting to the Database jdbc:mysql://localhost:3306/payroll_service?allowPublicKeyRetrieval=true&amp;useSSL=false
+employees being added : Sunder
+Driver Loaded!!
+  com.mysql.jdbc.Driver
+  com.mysql.fabric.jdbc.FabricMySQLDriver
+Connecting to the Database jdbc:mysql://localhost:3306/payroll_service?allowPublicKeyRetrieval=true&amp;useSSL=false
+employees being added : Mukesh
+Driver Loaded!!
+  com.mysql.jdbc.Driver
+  com.mysql.fabric.jdbc.FabricMySQLDriver
+Connecting to the Database jdbc:mysql://localhost:3306/payroll_service?allowPublicKeyRetrieval=true&amp;useSSL=false
+employees being added : Anil
+Driver Loaded!!
+  com.mysql.jdbc.Driver
+  com.mysql.fabric.jdbc.FabricMySQLDriver
+Connecting to the Database jdbc:mysql://localhost:3306/payroll_service?allowPublicKeyRetrieval=true&amp;useSSL=false
+Connection was successful
+employees being added : Jeff Bezos
+Connection was successful
+Connection was successful
 </pre>
 </span>
 </div>
@@ -633,6 +662,27 @@ com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Unknown column 'emplo
 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:630)
 	at org.gradle.internal.concurrent.ThreadFactoryImpl$ManagedThreadRunnable.run(ThreadFactoryImpl.java:56)
 	at java.base/java.lang.Thread.run(Thread.java:832)
+com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Unknown column 'employee_id' in 'field list'
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:481)
+	at com.mysql.jdbc.Util.handleNewInstance(Util.java:403)
+	at com.mysql.jdbc.Util.getInstance(Util.java:386)
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:944)
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:3933)
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:3869)
+	at com.mysql.jdbc.MysqlIO.sendCommand(MysqlIO.java:2524)
+	at com.mysql.jdbc.MysqlIO.sqlQueryDirect(MysqlIO.java:2675)
+	at com.mysql.jdbc.ConnectionImpl.execSQL(ConnectionImpl.java:2465)
+	at com.mysql.jdbc.StatementImpl.executeUpdateInternal(StatementImpl.java:1536)
+	at com.mysql.jdbc.StatementImpl.executeLargeUpdate(StatementImpl.java:2585)
+	at com.mysql.jdbc.StatementImpl.executeUpdate(StatementImpl.java:1464)
+	at com.cg.jdbc.EmployeePayrollDBService.addEmployeeToPayroll(EmployeePayrollDBService.java:220)
+	at com.cg.jdbc.EmployeePayrollService.addEmployeeToPayroll(EmployeePayrollService.java:71)
+	at com.cg.jdbc.EmployeePayrollService.lambda$addEmployeesToPayrollWithThreads$2(EmployeePayrollService.java:89)
+	at java.base/java.lang.Thread.run(Thread.java:832)
 </pre>
 </span>
 </div>
@@ -644,7 +694,7 @@ com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Unknown column 'emplo
 <input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
 </label>
 </div>Generated by 
-<a href="http://www.gradle.org">Gradle 6.3</a> at Nov 12, 2020, 4:10:46 PM</p>
+<a href="http://www.gradle.org">Gradle 6.3</a> at Nov 12, 2020, 4:17:38 PM</p>
 </div>
 </div>
 </body>
