@@ -5,7 +5,9 @@ import org.junit.Assert;
 
 import java.time.LocalDate;
 import java.util.List;
-        import static com.cg.jdbc.EmployeePayrollService.IOService.DB_IO;
+import java.util.Map;
+
+import static com.cg.jdbc.EmployeePayrollService.IOService.DB_IO;
 
 public class EmployeePayrollserviceTest {
 
@@ -32,6 +34,13 @@ public class EmployeePayrollserviceTest {
         LocalDate endDate = LocalDate.now();
         List<EmployeePayrollData> employeePayrollData = employeePayrollService.readEmployeePayrollForDateRange(DB_IO,startDate,endDate );
         Assert.assertEquals( 1,employeePayrollData.size() );
+    }
+    @Test
+    public void givenPayrollData_WhenAverageSalaryRetrieveByGender_ShouldReturnProperValue() {
+        EmployeePayrollService employeePayrollService = new EmployeePayrollService();
+        employeePayrollService.readEmployeePayrollData( DB_IO);
+        Map<String,Double> averageSalaryByGender = employeePayrollService.readAverageSalaryByGender(DB_IO);
+        Assert.assertTrue( averageSalaryByGender.get("M").equals( 1000.00 ) && averageSalaryByGender.get( "F" ).equals( 36000.00 ) );
     }
 
 }

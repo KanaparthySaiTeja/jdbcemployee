@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.cg.jdbc.EmployeePayrollserviceTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2020-11-11T14:59:09" hostname="DESKTOP-UDL4V0I" time="0.365">
+<testsuite name="com.cg.jdbc.EmployeePayrollserviceTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2020-11-12T08:48:52" hostname="DESKTOP-UDL4V0I" time="0.37">
   <properties/>
-  <testcase name="givenDateRange_WhenRetrieved_ShouldMatchEmployeeCount" classname="com.cg.jdbc.EmployeePayrollserviceTest" time="0.365"/>
+  <testcase name="givenPayrollData_WhenAverageSalaryRetrieveByGender_ShouldReturnProperValue" classname="com.cg.jdbc.EmployeePayrollserviceTest" time="0.37"/>
   <system-out><![CDATA[Driver Loaded!!
   com.mysql.jdbc.Driver
   com.mysql.fabric.jdbc.FabricMySQLDriver

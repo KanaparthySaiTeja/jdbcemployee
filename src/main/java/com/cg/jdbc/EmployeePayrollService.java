@@ -65,18 +65,4 @@ public class EmployeePayrollService {
             return employeePayrollDBService.getAverageSalaryByGender();
         return null;
     }
-
-    public void addEmployeeToPayroll(String name, String gender,double salary, LocalDate startDate,String comp_name,String dept_name,String comp_id) {
-        employeePayrollList.add(employeePayrollDBService.addEmployeeToPayroll(name,gender,salary,startDate,comp_name,dept_name,comp_id));
-    }
-
-    public void addEmployeesToPayroll(List<EmployeePayrollData> employeePayrollDataList){
-        employeePayrollDataList.forEach( employeePayrollData -> {
-            System.out.println("employees being added : "+employeePayrollData.name);
-            this.addEmployeeToPayroll(employeePayrollData.name, employeePayrollData.gender, employeePayrollData.salary, employeePayrollData.startDate,
-                    employeePayrollData.comp_name,employeePayrollData.dept_name,employeePayrollData.comp_id );
-            System.out.println("Employees added: "+employeePayrollData.name);
-        } );
-        System.out.println(this.employeePayrollList);
-    }
 }
